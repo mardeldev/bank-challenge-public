@@ -161,8 +161,8 @@ I want my clients to be able to add money to their bank account and withdraw mon
 |  | amount @amount |  |  |
 |  | transactionDate @string |  |  |
 - **Test 1a**: Instantiate a new `Client(name, Account)` , call `Client.newTransaction(Transaction, id, transactionType, amount, date)`, expect `addTransactionToAccount()` (a `spy` for `Account.addTransactionToAccount()`) to have been called.
-- **************Test 1b**************: Call `Client.newTransaction(Transaction, "001", "**deposit**", 100, "01/01/01")`, expect `Account.balance()`to be **more** than 0.
-- **************Test 1c**************: Call `Client.newTransaction(Transaction, "001", "**withdraw**", 100, "01/01/01")`, expect `Account.balance()`to be **less** than 0.
+- **************Test 1b**************: Call `Client.newTransaction(Transaction)`, expect `Account.balance()`to be **more** than 0.
+- **************Test 1c**************: Call `Client.newTransaction(Transaction)`, expect `Account.balance()`to be **less** than 0.
 
 ---
 
