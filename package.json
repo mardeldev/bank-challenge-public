@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Aimable Mardel Bank Challenge",
   "main": "index.js",
-  "test": "jasmine",
+  "type": "module",
   "directories": {
     "doc": "docs"
   },
