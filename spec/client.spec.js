@@ -2,20 +2,27 @@ import Client from "../src/client.js";
 
 describe('User Story 1 Test:', () => {
     let testClient;
-    const mockTransaction = {
-        id : '001',
-        transactionType : 'deposit',
-        amount : 100,
-        transactionDate : '01/01/01',
+    let testAccount;
+    class mockTransaction {
+        id = '001';
+        transactionType = 'deposit';
+        amount = 100;
+        transactionDate = '01/01/01';
     }
-    const mockAccount = {
-        transactionHistory : [],
-        accountNumber : 1,
-        balance : 0,
+    class mockAccount {
+        
+        transactionHistory = [];
+        accountNumber = 1;
+        balance = 0;
+
+        addTransactionToAccount(transactionToAdd){
+            this.transactionHistory.push({Transaction : transactionToAdd, Balance : this.balance});
+        }
     }
 
     beforeEach(() => {
-        testClient = new Client(`Ble`, mockAccount);
+        testAccount = new mockAccount();
+        testClient = new Client(`Ble`, testAccount);
     })
 
     afterEach(() => {
@@ -23,11 +30,10 @@ describe('User Story 1 Test:', () => {
     })
 
     it('1a. should call the Account addTransactionToAccount() method.', () => {
-        // Arrange
-        const mockAccountSpy = spyOn(mockAccount, 'addTransactionToAccount');
-
+        // Arrange -> testAccount and testClient done in beforeEach.
+        const mockAccountSpy = spyOn(testAccount, 'addTransactionToAccount');
         // Act
-        Ble.newTransaction(mockTransaction)
+        testClient.newTransaction(mockTransaction);
         // Assert
         expect(mockAccountSpy).toHaveBeenCalled();
     })
