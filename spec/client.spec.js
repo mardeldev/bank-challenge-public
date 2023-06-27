@@ -17,6 +17,7 @@ describe('User Story 1 Test:', () => {
 
         addTransactionToAccount(transactionToAdd){
             this.transactionHistory.push({Transaction : transactionToAdd, Balance : this.balance});
+            this.balance += transactionToAdd.amount;
         }
     }
 
@@ -30,11 +31,20 @@ describe('User Story 1 Test:', () => {
     })
 
     it('1a. should call the Account addTransactionToAccount() method.', () => {
-        // Arrange -> testAccount and testClient done in beforeEach.
+        // Arrange -> testAccount and testClient instantiation done in beforeEach.
         const mockAccountSpy = spyOn(testAccount, 'addTransactionToAccount');
         // Act
         testClient.newTransaction(mockTransaction);
         // Assert
         expect(mockAccountSpy).toHaveBeenCalled();
+    })
+
+    it('1b. should add money to the account.', () => {
+        // Arrange -> testAccount and testClient instantiation done in beforeEach.
+        const testAccountBalance = testAccount.balance;
+        // Act
+        testClient.newTransaction(mockTransaction);
+        // Assert
+        expect(testAccountBalance).toBe(100);
     })
 })
