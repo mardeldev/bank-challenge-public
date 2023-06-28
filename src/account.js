@@ -16,6 +16,10 @@ class Account {
         transactionToAdd.transactionType === 'deposit' ?  this.balance += parseInt(transactionToAdd.amount)
         : transactionToAdd.transactionType === 'withdraw' ? this.balance -= parseInt(transactionToAdd.amount) : () => {};
     }
+
+    getBalance(){
+        return this.balance;
+    }
       
 
 }
