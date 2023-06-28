@@ -85,6 +85,10 @@ describe('User Story 2 Test:', () => {
             this.account.addTransactionToAccount(this.transaction);
         }
 
+        getBalance(){
+            return this.account.getBalance();
+        }
+
     }
 
     beforeEach(() => {
@@ -101,7 +105,7 @@ describe('User Story 2 Test:', () => {
         // Arrange -> testAccount and testClient instantiation done in beforeEach.
         testClient.newTransaction(mockTransaction, '001', 'deposit', 100, '01/01/01');
         // Act
-        getBalanceTest= testClient.getBalance();
+        let getBalanceTest= testClient.getBalance();
         // Assert
         expect(getBalanceTest).toBe(100);
     })
