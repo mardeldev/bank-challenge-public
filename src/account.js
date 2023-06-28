@@ -7,7 +7,7 @@ class Account {
     
     constructor(){ this.accountNumber =  Account.accountNumberGenerator() }
 
-    static accountNumberGenerator() { return this.accNumberCounter++ };
+    static accountNumberGenerator() { return this.accNumberCounter++ }
 
     addTransactionToAccount(transactionToAdd){
         this.checkMoney(transactionToAdd);

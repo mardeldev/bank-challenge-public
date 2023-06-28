@@ -13,6 +13,7 @@
   "author": "Aimable Mardel",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^8.43.0",
     "jasmine": "^5.0.2"
   }
 }
