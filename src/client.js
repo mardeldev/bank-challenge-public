@@ -2,6 +2,7 @@ class Client {
     #name;
     #account;
     #transaction;
+    
     constructor(name, account) {
         this.#name = name;
         this.#account = account;

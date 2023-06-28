@@ -1,10 +1,13 @@
 class Account {
     withdrawalError = new Error('You do not have the sufficient funds to complete this transaction.');
     moneyError = new Error('You can only deposit money into your account.');
-    accountNumber;
-    balance = 0;
+    #balance = 0;
     transactionHistory = [];
+    static accNumberCounter = 1;
+    
+    constructor(){ this.accountNumber =  Account.accountNumberGenerator() }
 
+    static accountNumberGenerator() { return this.accNumberCounter++ };
 
     addTransactionToAccount(transactionToAdd){
         this.checkMoney(transactionToAdd);
@@ -18,20 +21,20 @@ class Account {
     }
 
     checkBalance(transactionToAdd){
-        transactionToAdd.transactionType === 'withdraw' && transactionToAdd.amount > this.balance ? (() => { throw this.withdrawalError})() : () => {};
+        transactionToAdd.transactionType === 'withdraw' && transactionToAdd.amount > this.#balance ? (() => { throw this.withdrawalError})() : () => {};
     }
 
     updateBalance(transactionToAdd){
-        transactionToAdd.transactionType === 'deposit' ?  this.balance += parseInt(transactionToAdd.amount)
-        : transactionToAdd.transactionType === 'withdraw' ? this.balance -= parseInt(transactionToAdd.amount) : () => {};
+        transactionToAdd.transactionType === 'deposit' ?  this.#balance += parseInt(transactionToAdd.amount)
+        : transactionToAdd.transactionType === 'withdraw' ? this.#balance -= parseInt(transactionToAdd.amount) : () => {};
     }
 
     getBalance(){
-        return this.balance;
+        return this.#balance;
     }
     
     updateTransactionHistory(transactionToAdd){
-        this.transactionHistory.push({Transaction : transactionToAdd, Balance : this.balance});
+        this.transactionHistory.push({Transaction : transactionToAdd, Balance : this.#balance});
      }
 
 }
