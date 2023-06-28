@@ -2,7 +2,6 @@ class Client {
     #name;
     #account;
     #transaction;
-
     constructor(name, account) {
         this.#name = name;
         this.#account = account;
@@ -22,9 +21,7 @@ class Client {
     }
 
     printStatement(Printer){
-        Printer.printStatement(this.account);
+        Printer.printStatement(this.#account);
     }
-
 }
-
 export default Client;
