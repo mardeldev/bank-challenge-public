@@ -181,3 +181,57 @@ describe('User Story 3 Test:', () => {
     })
 
 })
+
+//////////////////////////////////////////////////////////////////////////////
+
+describe('User Story 4 Test:', () => {
+    let testClient;
+    let testAccount;
+    class mockTransaction {
+        constructor(id, transactionType, amount, transactionDate){
+            this.id = id;
+            this.transactionType = transactionType;
+            this.amount = amount;
+            this.transactionDate = transactionDate;
+        }
+    }
+
+    class mockClient {
+    
+        constructor(name, account){
+            this.name = name;
+            this.account = account;
+        }
+        newTransaction(Transaction, id, transactionType, amount, transactionDate){
+            this.transaction = new Transaction(id, transactionType, amount, transactionDate);
+            this.addTransactionToAccount(this.transaction);
+        }
+        addTransactionToAccount(){
+            this.account.addTransactionToAccount(this.transaction);
+        }
+
+        getBalance(){
+            return this.account.getBalance();
+        }
+
+    }
+
+    beforeEach(() => {
+        testAccount = new Account();
+        testClient = new mockClient(`Ble`, testAccount);
+        
+    })
+
+    afterEach(() => {
+        testAccount = undefined;
+    })
+
+    it('4a. should call Account checkBalance() method.', () => {
+        // Arrange -> testAccount and testClient instantiation done in beforeEach.
+        // Act
+        testClient.newTransaction(mockTransaction, '001', 'deposit', 100, '01/01/01');
+        // Assert
+        expect(testAccount.checkBalance()).toHaveBeenCalled();
+    })
+
+})

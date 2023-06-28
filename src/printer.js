@@ -47,6 +47,6 @@ class Printer {
         return balance < 0 ? Printer.red + String(balance) + Printer.reset : Printer.green + String(balance) + Printer.reset;
     }
 }
-}
+
 
 export default Printer;
