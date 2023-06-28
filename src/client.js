@@ -21,6 +21,10 @@ class Client {
         return this.#account.getBalance();
     }
 
+    printStatement(Printer){
+        Printer.printStatement(this.account);
+    }
+
 }
 
 export default Client;

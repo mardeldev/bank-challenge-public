@@ -98,7 +98,7 @@ describe('User Story 3 Test:', () => {
     }
 
     class mockPrinter {
-       static printStatement(){}
+       static printStatement(account){}
     }
 
     beforeEach(() => {
