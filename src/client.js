@@ -10,12 +10,13 @@ class Client {
 
     newTransaction(Transaction, id, transactionType, amount, transactionDate){
         this.#transaction = new Transaction(id, transactionType, amount, transactionDate);
-        this.addTransactionToAccount();
+        this.addTransactionToAccount(this.#transaction);
     }
   
     addTransactionToAccount(){
         this.#account.addTransactionToAccount(this.#transaction);
     }
+
 }
 
 export default Client;

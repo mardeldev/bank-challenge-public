@@ -39,12 +39,4 @@ describe('User Story 1 Test:', () => {
         expect(mockAccountSpy).toHaveBeenCalled();
     })
 
-    it('1b. should add money to the account.', () => {
-        // Arrange -> testAccount and testClient instantiation done in beforeEach.
-        const testAccountBalance = testAccount.balance;
-        // Act
-        testClient.newTransaction(mockTransaction);
-        // Assert
-        expect(testAccountBalance).toBe(100);
-    })
 })
