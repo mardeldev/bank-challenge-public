@@ -225,7 +225,8 @@ I want to be able to print a statement with a history of my transactions.`
     call `Client.printStatement()`,
     
     expect `printStatement()` (a `spy` for `Account.printStatement()`) to have been called.
-- ****************Test 3b:**************** Call `Client.printStatement()`, expect console log to have been called.  
+- ****************Test 3b:**************** Call `Client.printStatement()`, expect console log to have been called.
+- ****************Test 3c:**************** Call `Client.printStatement()`, expect console log to have been called with the header row printed.  
 
 ---
 
