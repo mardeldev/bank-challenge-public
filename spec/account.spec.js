@@ -55,6 +55,14 @@ describe('User Story 1 Test:', () => {
         // Assert
         expect(testAccount.balance).toBe(0);
     })
+    it('1d. transactionHistory length to be 2.', () => {
+        // Arrange -> testAccount and testClient instantiation done in beforeEach.
+        // Act
+        testClient.newTransaction(mockTransaction, '001', 'deposit', 100, '01/01/01');
+        testClient.newTransaction(mockTransaction, '001', 'withdraw', 100, '01/01/01');
+        // Assert
+        expect(testAccount.transactionHistory.length).toBe(2);
+    })
 })
 
 //////////////////////////////////////////////////////////////////////////////
@@ -102,6 +110,61 @@ describe('User Story 2 Test:', () => {
     })
 
     it('2b. should return the balance in the account.', () => {
+        // Arrange -> testAccount and testClient instantiation done in beforeEach.
+        testClient.newTransaction(mockTransaction, '001', 'deposit', 100, '01/01/01');
+        // Act
+        let getBalanceTest= testClient.getBalance();
+        // Assert
+        expect(getBalanceTest).toBe(100);
+    })
+
+})
+
+//////////////////////////////////////////////////////////////////////////////
+
+describe('User Story 3 Test:', () => {
+    let testClient;
+    let testAccount;
+    class mockTransaction {
+        constructor(id, transactionType, amount, transactionDate){
+            this.id = id;
+            this.transactionType = transactionType;
+            this.amount = amount;
+            this.transactionDate = transactionDate;
+        }
+    }
+
+    class mockClient {
+    
+        constructor(name, account){
+            this.name = name;
+            this.account = account;
+        }
+        newTransaction(Transaction, id, transactionType, amount, transactionDate){
+            this.transaction = new Transaction(id, transactionType, amount, transactionDate);
+            this.addTransactionToAccount(this.transaction);
+        }
+        addTransactionToAccount(){
+            this.account.addTransactionToAccount(this.transaction);
+        }
+
+        getBalance(){
+            return this.account.getBalance();
+        }
+
+    }
+
+    beforeEach(() => {
+        testAccount = new Account();
+        testClient = new mockClient(`Ble`, testAccount);
+        
+    })
+
+    afterEach(() => {
+        testAccount = undefined;
+    })
+
+    it('3b. transactions to be in the transaction history.', () => {
         // Arrange -> testAccount and testClient instantiation done in beforeEach.
         testClient.newTransaction(mockTransaction, '001', 'deposit', 100, '01/01/01');
         // Act

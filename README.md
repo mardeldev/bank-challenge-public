@@ -163,6 +163,8 @@ I want my clients to be able to add money to their bank account and withdraw mon
 - **Test 1a**: Instantiate a new `Client(name, Account)` , call `Client.newTransaction(Transaction, id, transactionType, amount, date)`, expect `addTransactionToAccount()` (a `spy` for `Account.addTransactionToAccount()`) to have been called.
 - **************Test 1b**************: Call `Client.newTransaction(Transaction)`, expect `Account.balance()`to be **more** than 0.
 - **************Test 1c**************: Call `Client.newTransaction(Transaction)`, expect `Account.balance()`to be **less** than 0.
+- **************Test 1d**************: Expect `Account.transactionHistory.length` to be 2.
+- **************Test 1e**************: Call `Client.newTransaction(Transaction, "001", "**deposit**", 100, "01/01/01")`, expect `Account.transactionHistory[0]` to be instance of `Transaction`.
 
 ---
 
@@ -224,8 +226,6 @@ I want to be able to print a statement with a history of my transactions.`
     
     expect `printStatement()` (a `spy` for `Account.printStatement()`) to have been called.
     
-- **************Test 3b**************: Expect `Account.transactionHistory.length` to be 2.
-- **************Test 3c**************: Call `Client.newTransaction(Transaction, "001", "**deposit**", 100, "01/01/01")`, expect `Account.transactionHistory[0]` to be instance of `Transaction`.
 
 ---
 
