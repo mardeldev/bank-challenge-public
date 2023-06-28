@@ -8,8 +8,14 @@ class Account {
 
 
     addTransactionToAccount(transactionToAdd){
+        this.checkBalance(transactionToAdd);
         this.updateBalance(transactionToAdd);
-        this.transactionHistory.push({Transaction : transactionToAdd, Balance : this.balance});
+        this.updateTransactionHistory(transactionToAdd);
+        
+    }
+
+    checkBalance(transactionToAdd){
+        transactionToAdd.transactionType === 'withdraw' && transactionToAdd.amount > this.balance ? (() => { throw this.withdrawalError})() : () => {};
     }
 
     updateBalance(transactionToAdd){
@@ -20,7 +26,10 @@ class Account {
     getBalance(){
         return this.balance;
     }
-      
+    
+    updateTransactionHistory(transactionToAdd){
+        this.transactionHistory.push({Transaction : transactionToAdd, Balance : this.balance});
+     }
 
 }
 

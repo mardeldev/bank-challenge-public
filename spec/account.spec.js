@@ -228,10 +228,11 @@ describe('User Story 4 Test:', () => {
 
     it('4a. should call Account checkBalance() method.', () => {
         // Arrange -> testAccount and testClient instantiation done in beforeEach.
+        let checkBalanceSpy = spyOn(testAccount, "checkBalance")
         // Act
         testClient.newTransaction(mockTransaction, '001', 'deposit', 100, '01/01/01');
         // Assert
-        expect(testAccount.checkBalance()).toHaveBeenCalled();
+        expect(checkBalanceSpy).toHaveBeenCalled();
     })
 
 })
