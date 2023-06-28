@@ -63,6 +63,13 @@ describe('User Story 1 Test:', () => {
         // Assert
         expect(testAccount.transactionHistory.length).toBe(2);
     })
+    it('1e. transactionHistory item to be an instance of Transaction', () => {
+        // Arrange -> testAccount and testClient instantiation done in beforeEach.
+        // Act
+        testClient.newTransaction(mockTransaction, '001', 'deposit', 100, '01/01/01');
+        // Assert
+        expect(testAccount.transactionHistory[0].Transaction).toBeInstanceOf(mockTransaction);
+    })
 })
 
 //////////////////////////////////////////////////////////////////////////////
