@@ -240,3 +240,62 @@ describe('User Story 4 Test:', () => {
     })
 
 })
+
+//////////////////////////////////////////////////////////////////////////////
+
+describe('User Story 5 Test:', () => {
+    let testClient;
+    let testAccount;
+    class mockTransaction {
+        constructor(id, transactionType, amount, transactionDate){
+            this.id = id;
+            this.transactionType = transactionType;
+            this.amount = amount;
+            this.transactionDate = transactionDate;
+        }
+    }
+
+    class mockClient {
+    
+        constructor(name, account){
+            this.name = name;
+            this.account = account;
+        }
+        newTransaction(Transaction, id, transactionType, amount, transactionDate){
+            this.transaction = new Transaction(id, transactionType, amount, transactionDate);
+            this.addTransactionToAccount(this.transaction);
+        }
+        addTransactionToAccount(){
+            this.account.addTransactionToAccount(this.transaction);
+        }
+
+        getBalance(){
+            return this.account.getBalance();
+        }
+
+    }
+
+    beforeEach(() => {
+        testAccount = new Account();
+        testClient = new mockClient(`Ble`, testAccount);
+        
+    })
+
+    afterEach(() => {
+        testAccount = undefined;
+    })
+
+    it('5a. should call Account checkMoney() method.', () => {
+        // Arrange -> testAccount and testClient instantiation done in beforeEach.
+        let checkMoneySpy = spyOn(testAccount, "checkMoney")
+        // Act
+        testClient.newTransaction(mockTransaction, '001', 'deposit', 100, '01/01/01');
+        // Assert
+        expect(checkMoneySpy).toHaveBeenCalled();
+    })
+    // it('5b. expect an error to be thrown', () => {
+    //     // Assert
+    //     expect(() => { testClient.newTransaction(mockTransaction, '001', 'withdraw', 100, '01/01/01') }).toThrowError('You do not have the sufficient funds to complete this transaction.');
+    // })
+
+})
