@@ -17,6 +17,10 @@ class Client {
         this.#account.addTransactionToAccount(this.#transaction);
     }
 
+    getBalance(){
+        return this.#account.getBalance();
+    }
+
 }
 
 export default Client;
