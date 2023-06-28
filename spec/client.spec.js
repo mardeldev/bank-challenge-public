@@ -81,3 +81,42 @@ describe('User Story 2 Test:', () => {
     })
 
 })
+
+//////////////////////////////////////////////////////////////////////////////
+
+describe('User Story 3 Test:', () => {
+    let testClient;
+    let testAccount;
+
+    class mockAccount {
+        transactionHistory = [];
+        accountNumber = 1;
+        balance = 0;
+
+        addTransactionToAccount(transactionToAdd){}
+        getBalance(){}
+    }
+
+    class mockPrinter {
+       static printStatement(){}
+    }
+
+    beforeEach(() => {
+        testAccount = new mockAccount();
+        testClient = new Client(`Ble`, testAccount);
+    })
+
+    afterEach(() => {
+        testClient = undefined;
+    })
+
+    it('3a. should call the Printer printStatement() method.', () => {
+        // Arrange -> testAccount and testClient instantiation done in beforeEach.
+        const mockPrinterSpy = spyOn(mockPrinter, 'printStatement');
+        // Act
+        testClient.printStatement(mockPrinter);
+        // Assert
+        expect(mockPrinterSpy).toHaveBeenCalled();
+    })
+
+})
