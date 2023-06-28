@@ -43,7 +43,7 @@ describe('User Story 1 Test:', () => {
         // Act
         testClient.newTransaction(mockTransaction, '001', 'deposit', 100, '01/01/01');
         // Assert
-        expect(testAccount.balance).toBe(100);
+        expect(testAccount.getBalance()).toBe(100);
     })
 
     it('1c. should withdraw money from the account.', () => {
@@ -53,7 +53,7 @@ describe('User Story 1 Test:', () => {
         
         testClient.newTransaction(mockTransaction, '001', 'withdraw', 100, '01/01/01');
         // Assert
-        expect(testAccount.balance).toBe(0);
+        expect(testAccount.getBalance()).toBe(0);
     })
     it('1d. transactionHistory length to be 2.', () => {
         // Arrange -> testAccount and testClient instantiation done in beforeEach.
