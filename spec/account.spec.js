@@ -230,9 +230,13 @@ describe('User Story 4 Test:', () => {
         // Arrange -> testAccount and testClient instantiation done in beforeEach.
         let checkBalanceSpy = spyOn(testAccount, "checkBalance")
         // Act
-        testClient.newTransaction(mockTransaction, '001', 'deposit', 100, '01/01/01');
+        testClient.newTransaction(mockTransaction, '001', 'withdraw', 100, '01/01/01');
         // Assert
         expect(checkBalanceSpy).toHaveBeenCalled();
+    })
+    it('4b. expect an error to be thrown', () => {
+        // Assert
+        expect(() => { testClient.newTransaction(mockTransaction, '001', 'withdraw', 100, '01/01/01') }).toThrowError('You do not have the sufficient funds to complete this transaction.');
     })
 
 })

@@ -15,7 +15,7 @@ class Account {
     }
 
     checkBalance(transactionToAdd){
-        transactionToAdd.transactionType === 'withdraw' && transactionToAdd.amount > this.balance ? (() => { throw this.withdrawalError})() : () => {};
+        
     }
 
     updateBalance(transactionToAdd){
