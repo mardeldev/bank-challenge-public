@@ -22,7 +22,10 @@ describe('User Story 3 Test:', () => {
             this.transaction = new Transaction(id, transactionType, amount, transactionDate);
             this.addTransactionToAccount(this.transaction);
         }
-        addTransactionToAccount(){ this.account.addTransactionToAccount(this.transaction); }
+        addTransactionToAccount(){ this.account.addTransactionToAccount(this.transaction); };
+
+        printStatement(Printer){ Printer.printStatement(this.account) };
+    
     }
 
     class mockAccount {
