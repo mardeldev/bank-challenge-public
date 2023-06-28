@@ -16,8 +16,6 @@ describe('User Story 1 Test:', () => {
         balance = 0;
 
         addTransactionToAccount(transactionToAdd){
-            this.transactionHistory.push({Transaction : transactionToAdd, Balance : this.balance});
-            this.balance += transactionToAdd.amount;
         }
     }
 

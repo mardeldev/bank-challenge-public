@@ -13,7 +13,7 @@ class Account {
     }
 
     updateBalance(transactionToAdd){
-        this.balance += transactionToAdd.amount;
+        transactionToAdd.transactionType === 'deposit' ?  this.balance += parseInt(transactionToAdd.amount) : () => {};
     }
       
 

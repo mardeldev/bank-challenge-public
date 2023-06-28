@@ -38,11 +38,20 @@ describe('User Story 1 Test:', () => {
         testAccount = undefined;
     })
 
-    it('1b. should add money to the account.', () => {
+    it('1b. should deposit money to the account.', () => {
         // Arrange -> testAccount and testClient instantiation done in beforeEach.
         // Act
         testClient.newTransaction(mockTransaction, '001', 'deposit', 100, '01/01/01');
         // Assert
         expect(testAccount.balance).toBe(100);
+    })
+
+    it('1c. should withdraw money from the account.', () => {
+        // Arrange -> testAccount and testClient instantiation done in beforeEach.
+        // Act
+        testClient.newTransaction(mockTransaction, '001', 'deposit', 100, '01/01/01');
+        testClient.newTransaction(mockTransaction, '001', 'withdraw', 100, '01/01/01');
+        // Assert
+        expect(testAccount.balance).toBe(0);
     })
 })
