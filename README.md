@@ -164,7 +164,7 @@ I want my clients to be able to add money to their bank account and withdraw mon
 - **************Test 1b**************: Call `Client.newTransaction(Transaction)`, expect `Account.balance()`to be **more** than 0.
 - **************Test 1c**************: Call `Client.newTransaction(Transaction)`, expect `Account.balance()`to be **less** than 0.
 - **************Test 1d**************: Expect `Account.transactionHistory.length` to be 2.
-- **************Test 1e**************: Call `Client.newTransaction(Transaction, "001", "**deposit**", 100, "01/01/01")`, expect `Account.transactionHistory[0]` to be instance of `Transaction`.
+- **************Test 1e**************: Call `Client.newTransaction(Transaction, "001", "deposit", 100, "01/01/01")`, expect `Account.transactionHistory[0]` to be instance of `Transaction`.
 
 ---
 
@@ -218,9 +218,9 @@ I want to be able to print a statement with a history of my transactions.`
 |  | transactionType @string |  |  |
 |  | amount @amount |  |  |
 |  | transactionDate @string |  |  |
-- ****************Test 3a:**************** Instantiate a new `Client(name, Account)` , call `Client.newTransaction(Transaction, "001", "**deposit**", 100, "01/01/01")`,
+- ****************Test 3a:**************** Instantiate a new `Client(name, Account)` , call `Client.newTransaction(Transaction, "001", "deposit", 100, "01/01/01")`,
     
-    call `Client.newTransaction(Transaction, "002", "**deposit**", 100, "02/01/01")`,
+    call `Client.newTransaction(Transaction, "002", "deposit", 100, "02/01/01")`,
     
     call `Client.printStatement()`,
     
@@ -255,7 +255,7 @@ I want to be able to prevent my clients from withdrawing money that is not in th
 |  | transactionType @string |  |  |
 |  | amount @amount |  |  |
 |  | transactionDate @string |  |  |
-- **********Test 4a**********: Instantiate a new `Client(name, Account)` , call `Client.newTransaction(Transaction, "001", "**withdraw**", 100, "01/01/01")`,
+- **********Test 4a**********: Instantiate a new `Client(name, Account)` , call `Client.newTransaction(Transaction, "001", "withdraw", 100, "01/01/01")`,
     - expect `checkBalance()` (a `spy` for `Account.checkBalance()` ) to be called.
     - expect an `error` to be thrown.
 
@@ -289,7 +289,7 @@ I want to prevent my clients from depositing anything other than money.`
 |  | amount @amount |  |  |
 |  | transactionDate @string |  |  |
 
-**************Test 5a**************: Instantiate a new `Client(name, Account)` , call `Client.newTransaction(Transaction, "001", "withdraw", "**************bitcoin**************", "01/01/01")`,
+**************Test 5a**************: Instantiate a new `Client(name, Account)` , call `Client.newTransaction(Transaction, "001", "withdraw", "bitcoin", "01/01/01")`,
 
 - expect `checkMoney()` (a `spy` for `Account.checkMoney()` ) to be called.
 - expect an `error` to be thrown.
