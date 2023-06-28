@@ -4,7 +4,7 @@ class Printer {
     static red = '\x1b[31m';
     static reset = '\x1b[0m';
     static space = '';
-    static maxPadEnd = 8;
+    static maxPadEnd = 7;
     
     static printStatement(account) {
         this.transactionHistory = account.transactionHistory;
@@ -14,7 +14,7 @@ class Printer {
 
     static printHeader() {
         let header = { date: 'date', credit: ' credit', debit: ' debit', balance: ' balance' };
-        console.log(`${header.date.padEnd(11, ' ')}||${header.credit.padEnd(Printer.maxPadEnd + 1, ' ')}||${header.debit.padEnd(Printer.maxPadEnd + 1, ' ')}||${header.balance}`);
+        console.log(`${header.date.padEnd(11, ' ')}||${header.credit.padEnd(Printer.maxPadEnd + 2, ' ')}||${header.debit.padEnd(Printer.maxPadEnd + 1, ' ')}||${header.balance}`);
     }
 
     static printTransactions() {
@@ -36,7 +36,7 @@ class Printer {
     }
 
     static formatCredit(transactionType, transactionAmount) {
-        return transactionType === 'deposit' ? Printer.green + transactionAmount.padEnd(Printer.maxPadEnd, ' ') + Printer.reset : Printer.space.padEnd(Printer.maxPadEnd, ' ');
+        return transactionType === 'deposit' ? Printer.green + transactionAmount.padEnd(Printer.maxPadEnd + 1, ' ') + Printer.reset : Printer.space.padEnd(Printer.maxPadEnd + 1, ' ');
     }
 
     static formatDebit(transactionType, transactionAmount) {
