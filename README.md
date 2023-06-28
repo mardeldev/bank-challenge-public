@@ -33,6 +33,14 @@ The source code found in this repository has been written in Javascript and was 
 
 The Bank challenge is the second part of a series of challenges set by Digital Futures to test my working knowledge on the concepts learned so far on the Digital Futures Academy. In preparation for this challenge, some of the concepts learned include: Software Development Lifecycles, Test Driven Development, Testing Frameworks, Domain Modelling and Object Oriented Design & Testing.
 
+In my approach to this challenge, I wanted a client or bank manager to be able to simply create a transaction that will be added to the user account by calling a `newTransaction` method on the instance of the Client class and passing in an `id`, `transaction type`, `transaction amount` and a `date`.
+
+Transactions are then added to the user's `transaction history` as transaction objects that hold store the properties mentioned above.
+
+When a client wants to print their statement, they simply call a `printStatement` method on the instance of their Client class and pass in the `Printer` class as a parameter. The program then iterates through the client's past transactions and displays them in order of latest transaction first. The program also formats their `credits` as green and `withdrawals` as red.
+
+I have also added functionality that prevents the client from withdrawing money that they do not have in their balance. An error will be thrown instead.
+
 # Built with
 
 ---
