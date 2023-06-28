@@ -3,7 +3,7 @@ describe('User Story 3 Test:', () => {
     let testClient;
     let testAccount;
     let clgSpy;
-    const stringToPrint = "date       || credit  || debit   || balance"
+    const stringToPrint = "date       || credit  || debit  || balance"
     class mockTransaction {
         constructor(id, transactionType, amount, transactionDate){
             this.id = id;
