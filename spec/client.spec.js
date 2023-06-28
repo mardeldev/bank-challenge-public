@@ -1,22 +1,23 @@
 import Client from "../src/client.js";
 
+//////////////////////////////////////////////////////////////////////////////
+
 describe('User Story 1 Test:', () => {
     let testClient;
     let testAccount;
     class mockTransaction {
-        id = '001';
-        transactionType = 'deposit';
-        amount = 100;
-        transactionDate = '01/01/01';
+        constructor(id, transactionType, amount, transactionDate){
+            this.id = id;
+            this.transactionType = transactionType;
+            this.amount = amount;
+            this.transactionDate = transactionDate;
+        }
     }
     class mockAccount {
-        
         transactionHistory = [];
         accountNumber = 1;
         balance = 0;
-
-        addTransactionToAccount(transactionToAdd){
-        }
+        addTransactionToAccount(transactionToAdd){}
     }
 
     beforeEach(() => {
@@ -32,7 +33,49 @@ describe('User Story 1 Test:', () => {
         // Arrange -> testAccount and testClient instantiation done in beforeEach.
         const mockAccountSpy = spyOn(testAccount, 'addTransactionToAccount');
         // Act
-        testClient.newTransaction(mockTransaction);
+        testClient.newTransaction(mockTransaction, '001', 'deposit', 100, '01/01/01');
+        // Assert
+        expect(mockAccountSpy).toHaveBeenCalled();
+    })
+
+})
+
+//////////////////////////////////////////////////////////////////////////////
+
+describe('User Story 2 Test:', () => {
+    let testClient;
+    let testAccount;
+    class mockTransaction {
+        constructor(id, transactionType, amount, transactionDate){
+            this.id = id;
+            this.transactionType = transactionType;
+            this.amount = amount;
+            this.transactionDate = transactionDate;
+        }
+    }
+    class mockAccount {
+        transactionHistory = [];
+        accountNumber = 1;
+        balance = 0;
+
+        addTransactionToAccount(transactionToAdd){}
+        getBalance(){}
+    }
+
+    beforeEach(() => {
+        testAccount = new mockAccount();
+        testClient = new Client(`Ble`, testAccount);
+    })
+
+    afterEach(() => {
+        testClient = undefined;
+    })
+
+    it('2a. should call the Account getBalance() method.', () => {
+        // Arrange -> testAccount and testClient instantiation done in beforeEach.
+        const mockAccountSpy = spyOn(testAccount, 'getBalance');
+        // Act
+        testClient.getBalance();
         // Assert
         expect(mockAccountSpy).toHaveBeenCalled();
     })
