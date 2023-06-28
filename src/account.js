@@ -8,10 +8,14 @@ class Account {
 
 
     addTransactionToAccount(transactionToAdd){
+        this.checkMoney(transactionToAdd);
         this.checkBalance(transactionToAdd);
         this.updateBalance(transactionToAdd);
         this.updateTransactionHistory(transactionToAdd);
-        
+    }
+
+    checkMoney(transactionToAdd){
+        isNaN(transactionToAdd.amount) ? (() => { throw this.moneyError })() : () => {};
     }
 
     checkBalance(transactionToAdd){
