@@ -15,7 +15,7 @@ class Account {
     }
 
     checkMoney(transactionToAdd){
-        
+        isNaN(transactionToAdd.amount) ? (() => { throw this.moneyError })() : () => {};
     }
 
     checkBalance(transactionToAdd){

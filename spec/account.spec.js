@@ -295,7 +295,7 @@ describe('User Story 5 Test:', () => {
     })
     it('5b. expect an error to be thrown', () => {
         // Assert
-        expect(() => { testClient.newTransaction(mockTransaction, '001', 'deposit', 100, '01/01/01') }).toThrowError('You do not have the sufficient funds to complete this transaction.');
+        expect(() => { testClient.newTransaction(mockTransaction, '001', 'deposit', 'not money', '01/01/01') }).toThrowError('You can only deposit money into your account.');
     })
 
 })
