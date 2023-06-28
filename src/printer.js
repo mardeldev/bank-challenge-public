@@ -9,7 +9,7 @@ class Printer {
 
     static printStatement(account) {
         this.transactionHistory = account.transactionHistory;
-        this.printHeader();
+       
     }
 
     static printHeader() {

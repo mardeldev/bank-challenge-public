@@ -3,6 +3,7 @@ describe('User Story 3 Test:', () => {
     let testClient;
     let testAccount;
     let clgSpy;
+    const stringToPrint = "date       || credit  || debit   || balance"
     class mockTransaction {
         constructor(id, transactionType, amount, transactionDate){
             this.id = id;
@@ -53,6 +54,14 @@ describe('User Story 3 Test:', () => {
         testClient.printStatement(Printer);
         // Assert
         expect(clgSpy).toHaveBeenCalled();
+    })
+    it('3c. should call on console log with the expected output', () => {
+        // Arrange -> testAccount and testClient instantiation done in beforeEach.
+        testClient.newTransaction(mockTransaction, '001', 'deposit', 1000, (new Date (2012, 0, 10)));
+        // Act
+        testClient.printStatement(Printer);
+        // Assert
+        expect(clgSpy).toHaveBeenCalledWith(stringToPrint);
     })
 
 })
