@@ -37,12 +37,7 @@ class Printer {
     }
 
     static printTransaction(transaction) {
-        let date = String(transaction.Transaction.transactionDate);
-        let transactionType = transaction.Transaction.transactionType;
-        let transactionAmount = parseInt(transaction.Transaction.amount).toFixed(2);
-        let balance = parseInt(transaction.Balance).toFixed(2);
-        let credit = this.formatCredit(transactionType, transactionAmount);
-        let debit = this.formatDebit(transactionType, transactionAmount);
+        let date = String(transaction.Transaction.transactionDate), transactionType = transaction.Transaction.transactionType, transactionAmount = parseInt(transaction.Transaction.amount).toFixed(2), balance = parseInt(transaction.Balance).toFixed(2), credit = this.formatCredit(transactionType, transactionAmount), debit = this.formatDebit(transactionType, transactionAmount);
         balance = this.formatBalance(balance);
         console.log(`${date.padEnd(11, ' ')}|| ${credit}|| ${debit}|| ${balance}`);
     }
