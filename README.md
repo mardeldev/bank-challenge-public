@@ -148,10 +148,19 @@ I want to prevent my clients from depositing anything other than money.`
 # Result
 
 Running `node index.js` from the src folder will produce the following output:
-<img src = "images/result.jpg" width="100" >
+<br/><br/>
+<img src = "images/result.png" width="500" >
 
+### Process
 
+In `index.js`, first, the program instantiates a new `Account`, and a new `Client` with the new instance of the `Account` as an argument to provide.<br/><br/>
+<img src = "images/instatiations.png" width="500">
 
+<p>
+Next, the user would call the `newTransaction` method of the new `Client` (in this case "Ble). The user would then proceed to specify the transaction type and amount. To satisfy the requirements of this challenge, the user would also need to specify the date of the transaction so as to match the required output.
+</p>
+<br/><br/>
+<img src = "images/newtransaction.png" width="500">
 ---
 
 ### User Story 1
