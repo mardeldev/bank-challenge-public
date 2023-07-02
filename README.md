@@ -347,3 +347,8 @@ I want to prevent my clients from depositing anything other than money.`
 [y] Are all your unit tests isolated?
 
 `y` means yes.
+
+### Resources
+The following is a list of resources that I found helpful while building this app.
+- https://www.w3schools.com/js/js_random.asp
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
