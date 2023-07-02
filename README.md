@@ -120,35 +120,6 @@ date       || credit  || debit  || balance
 ```
 
 Credited values should be GREEN and debited values should be RED. The balance should be GREEN if positive and RED if negative 
-
-### Review
-[y] Have you written a README explaining your approach, perhaps a domain model, instructions to install, run app, run tests, and examples of interactions?
-
-[y] Did you start with a feature test first? -> I wrote failing tests first and then refactored code to pass them.
-
-[y] Do all your tests pass? (How do you know?) -> Yes. when I run `npm test`, it shows all tests as having passed.
-
-[y] Does your program have sufficient test coverage? (How do you know?) -> I have written tests that test the functionality and some erroneous cases such as if a client wants to withdraw money that they do not have in their account.
-
-[y] Have you linted your code? (How do you know?) -> I ran `es lint` on each source code file and it came back with no errors.
-
-[y] Do you have 3 or more classes?
-
-[y] Are your methods no longer than 5 lines?
-
-[y] Is the complexity of your methods low? (How do you know?) -> I have adopted a single 
-
-[y] Are all parts of the statement format in presentation-specific classes? (Statement, lineItem etc)
-
-[y] Have you encapsulated transaction data in a class?
-
-[y] Have you encapsulated adding to the transactions array in a class?
-
-[y] Are all your class dependencies (even Date? (!)) injected rather than hard-coded?
-
-[y] Are all your unit tests isolated?
-
-`y` means yes.
 ---
 
 # User Stories
@@ -331,3 +302,31 @@ I want to prevent my clients from depositing anything other than money.`
 - expect an `error` to be thrown.
 
 ---
+### Review
+[y] Have you written a README explaining your approach, perhaps a domain model, instructions to install, run app, run tests, and examples of interactions?
+
+[y] Did you start with a feature test first? -> I wrote failing tests first and then refactored code to pass them.
+
+[y] Do all your tests pass? (How do you know?) -> Yes. when I run `npm test`, it shows all tests as having passed.
+
+[y] Does your program have sufficient test coverage? (How do you know?) -> I have written tests that test the functionality and some erroneous cases such as if a client wants to withdraw money that they do not have in their account.
+
+[y] Have you linted your code? (How do you know?) -> I ran `es lint` on each source code file and it came back with no errors.
+
+[y] Do you have 3 or more classes?
+
+[y] Are your methods no longer than 5 lines?
+
+[y] Is the complexity of your methods low? (How do you know?) -> I have adopted a single 
+
+[y] Are all parts of the statement format in presentation-specific classes? (Statement, lineItem etc)
+
+[y] Have you encapsulated transaction data in a class?
+
+[y] Have you encapsulated adding to the transactions array in a class?
+
+[y] Are all your class dependencies (even Date? (!)) injected rather than hard-coded?
+
+[y] Are all your unit tests isolated?
+
+`y` means yes.
