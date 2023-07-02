@@ -117,9 +117,9 @@ date       || credit  || debit  || balance
 14/01/2012 ||         || 500.00 || 2500.00
 13/01/2012 || 2000.00 ||        || 3000.00
 10/01/2012 || 1000.00 ||        || 1000.00
-```
 
-Credited values should be GREEN and debited values should be RED. The balance should be GREEN if positive and RED if negative 
+Credited values should be GREEN and debited values should be RED. The balance should be GREEN if positive and RED if negative.
+```
 ---
 
 # User Stories
@@ -143,6 +143,14 @@ I want to be able to prevent my clients from withdrawing money that is not in th
 `As a bank manager,
 So that we keep their accounts functional,
 I want to prevent my clients from depositing anything other than money.`
+
+---
+# Result
+
+Running `node index.js` from the src folder will produce the following output:
+<img src = "images/result.jpg" width="100" >
+
+
 
 ---
 
